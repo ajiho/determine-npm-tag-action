@@ -4,15 +4,11 @@ author: "ajiho <lujiahao@88.com>"
 runs:
   using: "composite"
   steps:
-    - name: Make script executable
-      run: chmod +x $GITHUB_ACTION_PATH/entrypoint.sh
-      shell: bash
-
     - name: Run dist tag script
       shell: bash
       run: |
         echo "Running entrypoint.sh"
-        bash "$GITHUB_ACTION_PATH/entrypoint.sh"
+        bash "$GITHUB_ACTION_PATH/entrypoint.sh" "$GITHUB_OUTPUT"
 outputs:
   tag:
     description: "The npm dist-tag to use when publishing"
