@@ -4,13 +4,14 @@ author: "ajiho <lujiahao@88.com>"
 runs:
   using: "composite"
   steps:
-    - name: Run dist tag script
+    - name: Run Determine npm dist-tag
+      id: run-determine-npm-dist-tag
       shell: bash
-      run: |
-        echo "Running entrypoint.sh"
-        bash "$GITHUB_ACTION_PATH/entrypoint.sh" "$GITHUB_OUTPUT"
+      run: ${{ github.action_path }}/run.sh # or ${GITHUB_ACTION_PATH}
 outputs:
   tag:
-    description: "The npm dist-tag to use when publishing"
+    description: "npm dist-tag"
+    value: ${{ steps.run-determine-npm-dist-tag.outputs.tag }}
   prerelease:
-    description: "Whether this release is a prerelease"
+    description: "prerelease flag"
+    value: ${{ steps.run-determine-npm-dist-tag.outputs.prerelease }}
