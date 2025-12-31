@@ -6,6 +6,7 @@ runs:
   steps:
     - name: Make script executable
       run: chmod +x entrypoint.sh
+      shell: bash
 
     - name: Run dist tag script
       run: ./entrypoint.sh
