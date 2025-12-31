@@ -1,0 +1,17 @@
+name: "Determine npm tag"
+description: "Determine npm tag and whether the release is a prerelease"
+author: "ajiho <lujiahao@88.com>"
+runs:
+  using: "composite"
+  steps:
+    - name: Make script executable
+      run: chmod +x entrypoint.sh
+
+    - name: Run dist tag script
+      run: ./entrypoint.sh
+      shell: bash
+outputs:
+  tag:
+    description: "The npm dist-tag to use when publishing"
+  prerelease:
+    description: "Whether this release is a prerelease"
