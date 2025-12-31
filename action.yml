@@ -7,7 +7,7 @@ runs:
     - name: Run Determine npm dist-tag
       id: run-determine-npm-dist-tag
       shell: bash
-      run: bash ${GITHUB_ACTION_PATH}/run.sh # or ${GITHUB_ACTION_PATH}
+      run: ${GITHUB_ACTION_PATH}/run.sh # or ${GITHUB_ACTION_PATH}
 outputs:
   tag:
     description: "npm dist-tag"
@@ -15,3 +15,7 @@ outputs:
   prerelease:
     description: "prerelease flag"
     value: ${{ steps.run-determine-npm-dist-tag.outputs.prerelease }}
+
+branding:
+  icon: "triangle"
+  color: "green"
