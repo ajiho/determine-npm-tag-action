@@ -7,7 +7,7 @@ runs:
     - name: Run Determine npm dist-tag
       id: run-determine-npm-dist-tag
       shell: bash
-      run: ${GITHUB_ACTION_PATH}/entrypoint.sh # or ${GITHUB_ACTION_PATH}
+      run: bash ${GITHUB_ACTION_PATH}/run.sh # or ${GITHUB_ACTION_PATH}
 outputs:
   tag:
     description: "npm dist-tag"
